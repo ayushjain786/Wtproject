@@ -1,0 +1,34 @@
+#libraries used
+
+social-auth-app-django
+django
+django-markdownx
+
+#Sign-in
+
+Add stuff from social-auth page
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ‘’
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
+LOGIN_REDIRECT_URL = '/#'
+<a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">Login with Google</a>
+
+#Markdown
+Install and configure as mentioned at django-markdownx
+
+In views:
+from markdownx.utils import markdownify
+post.text = markdownify(post.text)
+
+In post_detail template:
+{{post.text | safe}} to allow HTML tags to be rendered.
+
+
+#TO-DO
+https://djangogirls.gitbooks.io/django-girls-tutorial-extensions/homework_create_more_models/
+
+
+Changes:
+*New post redirect ,fixed
+*markdown instructions, done
+*delete post, done
+*contact, left
